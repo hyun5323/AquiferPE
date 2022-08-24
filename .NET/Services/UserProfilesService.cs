@@ -83,38 +83,6 @@ namespace Sabio.Services
             return Id;
         }
 
-        //public List<ProfessionIdPair> AddProfessionTypes(UserProfileAddRequest model)
-        //{
-        //    List<ProfessionIdPair> userId = null;
-
-        //    DataTable myParamValue = null;
-        //    if(model.UserProfile != null)
-        //    {
-        //        myParamValue = MapAUserV2(model.UserProfile)
-        //    }
-
-        //    _dataProvider.ExecuteCmd("[dbo].[UserProfile_Insert]",
-        //        inputParamMapper: delegate (SqlParameterCollection sqlParams)
-        //        {
-        //            sqlParamsAddWithValue("@BatchProfessionTypes", myParamValue);
-        //        },
-
-        //        singleRecordMapper: delegate (IDataReader reader, short set)
-        //        {
-        //            UserProfessionTypes type = new UserProfessionTypes();
-        //            int startingIndex = 0;
-        //            pair.UserprofileId = reader.GetInt32(startingIndex++);
-        //            pair.ProfessionTypeId = reader.GetChar(startingIndex++);
-
-        //            if (userId == null)
-        //            {
-        //                userId = new List<UserProfessionTypes>();
-        //            }
-
-        //            userId.Add(pair);
-        //        });
-        //}
-
         public UserProfile Get(int Id)
         {
             string procName = "[dbo].[UserProfiles_Select_ById]";
@@ -283,12 +251,6 @@ namespace Sabio.Services
         private static UserProfile MapAUser(IDataReader reader, ref int startingIndex)
         {
             UserProfile aUser = new UserProfile();
-            //aUser.State = new LookUp();
-            //aUser.ProfessionType = new LookUp();
-            //aUser.ProfessionTypeId = new List<int>();
-            //aUser.Location = new Location();
-            //aUser.Location.LocationType = new LookUp();
-            //aUser.Location.State = new State();
 
             aUser.Id = reader.GetSafeInt32(startingIndex++);
             aUser.UserId = reader.GetSafeInt32(startingIndex++);
@@ -296,9 +258,6 @@ namespace Sabio.Services
             aUser.LastName = reader.GetSafeString(startingIndex++);
             aUser.Mi = reader.GetSafeString(startingIndex++);
             aUser.AvatarUrl = reader.GetSafeString(startingIndex++);
-            //aUser.ProfessionType = new LookUp();
-            //aUser.ProfessionType.Id = reader.GetSafeInt32(startingIndex++);
-            //aUser.ProfessionType.Name = reader.GetSafeString(startingIndex++);
             aUser.DOB = reader.GetSafeDateTime(startingIndex++);
             aUser.Email = reader.GetSafeString(startingIndex++);
             aUser.Phone = reader.GetSafeString(startingIndex++);
@@ -347,14 +306,5 @@ namespace Sabio.Services
             col.AddWithValue("@IsActive", model.IsActive);
 
         }
-
-        //private static ProfessionTypeId MapSingleProfessionType(IDataReader reader, ref int startingIndex)
-        //{
-        //    ProfessionTypeId model = new ProfessionTypeId();
-        //    model.UserProfileId = reader.GetSafeInt32(startingIndex++);
-        //    model.ProfessionTypeId = reader.GetSafeInt32(startingIndex++);
-
-        //    return model;
-        //}
     }
 }
