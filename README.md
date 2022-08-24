@@ -1,1 +1,1 @@
-# Aquifer_PE
+Aquifer PE is a web application enabling a freelance tech platform specialized for instant connection and hiring civil engineers and construction industry specialists. Aquifer PE is an MVP and due to the proprietary nature of the code, i can only provide code snippets of my code. This repository contains SQL, .NET, and React code for the UserProfile feature. 
