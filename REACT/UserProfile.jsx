@@ -61,7 +61,6 @@ function UserProfile(props) {
         navigate(`/userprofile/edit`, { state: stateForSendingProfileData });
     };
 
-    //jesse
     const onClickTofollowers = (e) => {
         _loggerPage('navigate to edit the profile', e.currentTarget);
         // const stateForSendingProfileData = { type: 'USERPROFILE_VIEW', payload: aUserProfileData };
